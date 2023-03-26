@@ -20,6 +20,5 @@ namespace ProjetoErp.Models
 
         //Attributes
         public string? nome_FN { get; set; }
-        public 
     }
 }

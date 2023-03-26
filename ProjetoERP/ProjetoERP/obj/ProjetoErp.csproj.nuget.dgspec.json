@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lugaw\\source\\repos\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj": {}
+    "D:\\Faculdade\\ProjetoCorporativo\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lugaw\\source\\repos\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj": {
+    "D:\\Faculdade\\ProjetoCorporativo\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lugaw\\source\\repos\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj",
+        "projectUniqueName": "D:\\Faculdade\\ProjetoCorporativo\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj",
         "projectName": "ProjetoErp",
-        "projectPath": "C:\\Users\\Lugaw\\source\\repos\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj",
-        "packagesPath": "C:\\Users\\Lugaw\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lugaw\\source\\repos\\ProjetoERP\\ProjetoErp\\obj\\",
+        "projectPath": "D:\\Faculdade\\ProjetoCorporativo\\ProjetoERP\\ProjetoErp\\ProjetoErp.csproj",
+        "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
+        "outputPath": "D:\\Faculdade\\ProjetoCorporativo\\ProjetoERP\\ProjetoErp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lugaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.17.2, )"
@@ -47,6 +61,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Diagnostics.Tools": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [
