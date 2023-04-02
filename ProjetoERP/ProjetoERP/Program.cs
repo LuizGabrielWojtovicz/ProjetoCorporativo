@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using ProjetoErp.Data;
+using ProjetoErp.Repositorios;
+using ProjetoErp.Repositorios.Interfaces;
+
 namespace ProjetoErp
 {
     public class Program
@@ -12,6 +17,12 @@ namespace ProjetoErp
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddEntityFrameworkSqlServer().AddDbContext<ProjetoDBContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+                );
+
+            builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepositorio>();
 
             var app = builder.Build();
 
