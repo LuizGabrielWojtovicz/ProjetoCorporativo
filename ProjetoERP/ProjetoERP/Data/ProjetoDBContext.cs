@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjetoErp.Data.Map;
 using ProjetoErp.Models;
 
 namespace ProjetoErp.Data
@@ -14,6 +15,7 @@ namespace ProjetoErp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new FuncionarioMap());
             base.OnModelCreating(modelBuilder);
         }
 
