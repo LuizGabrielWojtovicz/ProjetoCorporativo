@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoErp.Data;
 
@@ -11,9 +12,11 @@ using ProjetoErp.Data;
 namespace ProjetoErp.Migrations
 {
     [DbContext(typeof(ProjetoDBContext))]
-    partial class ProjetoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230407220035_tabelaProdutos")]
+    partial class tabelaProdutos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,37 +48,6 @@ namespace ProjetoErp.Migrations
                     b.HasKey("id_CT");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("ProjetoErp.Models.FornecedorModel", b =>
-                {
-                    b.Property<int>("id_FN")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_FN"));
-
-                    b.Property<string>("descricao_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("documentoCnpj_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("enderecoEmail_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("enderecoLocal_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("nome_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("numeroTelefone_FN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id_FN");
-
-                    b.ToTable("Fornecedores");
                 });
 
             modelBuilder.Entity("ProjetoErp.Models.FuncionarioModel", b =>

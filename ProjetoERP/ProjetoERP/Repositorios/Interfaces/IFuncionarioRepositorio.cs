@@ -4,13 +4,13 @@ namespace ProjetoErp.Repositorios.Interfaces
 {
     public interface IFuncionarioRepositorio
     {
-        Task<List<FuncionariosModel>> BuscarFuncionarios();
+        Task<List<FuncionarioModel>> BuscarTodos();
 
-        Task<FuncionariosModel> BuscarPorId(int id);
+        Task<FuncionarioModel> BuscarPorId(int id);
 
-        Task<FuncionariosModel> Adicionar(FuncionariosModel funcionario);
+        Task<FuncionarioModel> Adicionar(Object obj);
 
-        Task<FuncionariosModel> Atualizar(FuncionariosModel funcionario, int id);
+        Task<FuncionarioModel> Atualizar(Object obj, int id);
 
         Task<bool> Apagar(int id);
     }

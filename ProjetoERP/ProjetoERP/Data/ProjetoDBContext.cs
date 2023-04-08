@@ -11,7 +11,16 @@ namespace ProjetoErp.Data
         {
         }
 
-        public DbSet<FuncionariosModel> Funcionarios { get; set; }
+        public DbSet<FuncionarioModel> Funcionarios { get; set; }
+        public DbSet<ClienteModel> Clientes { get; set; }
+
+        public DbSet<ProdutoModel> Produtos { get; set; }
+
+        public DbSet<FornecedorModel> Fornecedores{ get; set; }
+
+        public DbSet<ProdutoVendidoModel> Carrinho { get; set; }
+
+        public DbSet<VendaModel> Vendas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
