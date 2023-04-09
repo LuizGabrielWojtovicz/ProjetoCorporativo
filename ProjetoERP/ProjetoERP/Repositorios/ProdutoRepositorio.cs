@@ -55,7 +55,7 @@ namespace ProjetoErp.Repositorios
         public async Task<bool> Apagar(int id)
         {
             ProdutoModel prod = await BuscarPorId(id);
-            await _dbContext.SaveChangesAsync();
+           
 
             if (prod == null)
             {

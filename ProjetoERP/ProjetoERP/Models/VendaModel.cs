@@ -10,6 +10,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ProjetoErp.Models
 {
@@ -27,15 +28,16 @@ namespace ProjetoErp.Models
         public int id_CT { get; set; }
 
         //Foreign Key FuncionariosModel
-        [ForeignKey("CarrinhoModel")]
-        public int id_CR { get; set; }
-
-        public List<ProdutoVendidoModel>? Carrinho { get; set; }
+        [ForeignKey("FuncionarioModel")]
+        public int id_FN { get; set; }
 
         //Attributes
         public DateTime data_VD { get; set; }
         public Status_VD status_VD { get; set; }
+
         public double valorTotal_VD { get; set; }
+
+        [JsonIgnore]
         public double desconto_VD { get; set; }
         public MetodoPagamento_VD metodoPagamento_VD { get; set; }
         public TipoVenda_VD tipoVenda_VD { get; set; }

@@ -1,4 +1,5 @@
-﻿using ProjetoErp.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoErp.Data;
 using ProjetoErp.Models;
 
 namespace ProjetoErp.Repositorios
@@ -15,16 +16,50 @@ namespace ProjetoErp.Repositorios
         public async Task<VendaModel> GerarVenda(VendaModel venda)
         {
 
-            List < ProdutoVendidoModel > produtosCarrinho = await produtoVendidoRepositorio.BuscarProdutos();
+            List < ProdutoVendidoModel > produtosCarrinho = await _dbContext.Carrinho.ToListAsync();
 
-            foreach(ProdutoVendidoModel produtoVendidoModel in produtosCarrinho)
+            if (produtosCarrinho == null)
             {
-              venda.valorTotal_VD += produtoVendidoModel.precoUnitario_PV;
+                throw new Exception($"O carrinho está vazio");
+            }
+
+            foreach (ProdutoVendidoModel produtoVendidoModel in produtosCarrinho)
+            {
+              venda.valorTotal_VD += produtoVendidoModel.precoUnitario_PV * produtoVendidoModel.quantidade_CR;
             }
 
             await _dbContext.Vendas.AddAsync(venda);
+            await _dbContext.SaveChangesAsync();
+
+           await LimparCarrinho();
 
             return venda;
+        }
+
+        public async Task<bool> LimparCarrinho()
+        {
+
+            List<ProdutoVendidoModel> produtosCarrinho = await _dbContext.Carrinho.ToListAsync();
+
+            if (produtosCarrinho == null)
+            {
+                throw new Exception($"O carrinho está vazio");
+            }
+
+            foreach (ProdutoVendidoModel produtoVendidoModel in produtosCarrinho)
+            {
+                _dbContext.Carrinho.Remove(produtoVendidoModel);
+            }
+
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+        }
+
+
+        public async Task<List<VendaModel>> BuscarVendas()
+        {
+            return await _dbContext.Vendas.ToListAsync();
         }
     }
 }

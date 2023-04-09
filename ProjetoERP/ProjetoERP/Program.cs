@@ -26,6 +26,8 @@ namespace ProjetoErp
             builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             builder.Services.AddScoped<IFornecedorRepositorio, FornecedorRepositorio>();
+            builder.Services.AddScoped<VendaRepositorio>();
+            builder.Services.AddScoped<ProdutoVendidoRepositorio>();
 
             var app = builder.Build();
 
