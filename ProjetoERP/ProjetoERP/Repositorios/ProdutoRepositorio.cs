@@ -34,6 +34,7 @@ namespace ProjetoErp.Repositorios
             }
 
             prod.nome_PD = produto.nome_PD;
+            prod.id_FN = produto.id_FN;
             prod.quantidadeEstoque_PD = produto.quantidadeEstoque_PD;
             prod.estoqueMaximo_PD = produto.estoqueMaximo_PD;
             prod.estoqueMinimo_PD = produto.estoqueMinimo_PD;
@@ -73,13 +74,18 @@ namespace ProjetoErp.Repositorios
             return await _dbContext.Produtos.FirstOrDefaultAsync(x => x.id_PD == id);
         }
 
+        public async Task<ProdutoModel> BuscarPorIdProdutoIdFornecedor(int idProduto,int idFornecedor)
+        {
+            return await _dbContext.Produtos.FirstOrDefaultAsync(x => x.id_PD == idProduto && x.id_FN == idFornecedor);
+        }
+
         public async Task<List<ProdutoModel>> BuscarProdutos()
         {
             return await _dbContext.Produtos.ToListAsync();
         }
         public async Task<ProdutoModel> AtualizarQuantidadeProduto(ProdutoQuantidadeModel produto)
         {
-            ProdutoModel prod = await BuscarPorId(produto.id_PD);
+            ProdutoModel prod = await BuscarPorIdProdutoIdFornecedor(produto.id_PD, produto.id_FN);
 
             if (prod == null)
             {

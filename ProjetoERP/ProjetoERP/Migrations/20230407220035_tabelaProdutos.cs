@@ -17,6 +17,7 @@ namespace ProjetoErp.Migrations
                 {
                     id_PD = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    id_FN = table.Column<int>(type: "int", nullable: false),
                     nome_PD = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     quantidadeEstoque_PD = table.Column<int>(type: "int", nullable: false),
                     estoqueMinimo_PD = table.Column<int>(type: "int", nullable: false),

@@ -7,6 +7,7 @@ namespace ProjetoErp.Data.Map
     {
         public void Configure(EntityTypeBuilder<ProdutoModel> builder)
         {
+            builder.Property(x => x.id_FN).IsRequired();
             builder.Property(x => x.nome_PD).IsRequired().HasMaxLength(250);
             builder.Property(x => x.quantidadeEstoque_PD).IsRequired();
             builder.Property(x => x.estoqueMinimo_PD).IsRequired();

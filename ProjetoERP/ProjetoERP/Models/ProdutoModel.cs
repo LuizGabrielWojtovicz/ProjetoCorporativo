@@ -19,7 +19,7 @@ namespace ProjetoErp.Models
         //Primary Key ProdutosModel
         [Key]
         public int id_PD { get; set; }
-
+        public int id_FN { get; set; }
         //Attributes
         public string? nome_PD { get; set; }
         public int quantidadeEstoque_PD { get; set; }
@@ -37,6 +37,7 @@ namespace ProjetoErp.Models
     public class ProdutoQuantidadeModel
     {
         public int id_PD { get; set; }
+        public int id_FN { get; set; }
         public int quantidadeEstoque_PD { get; set; }
     }
 
