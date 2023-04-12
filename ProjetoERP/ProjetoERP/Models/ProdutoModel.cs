@@ -33,4 +33,11 @@ namespace ProjetoErp.Models
         public Status_PD status_PD { get; set; }
         public string? descricao_PD { get; set; }
     }
+
+    public class ProdutoQuantidadeModel
+    {
+        public int id_PD { get; set; }
+        public int quantidadeEstoque_PD { get; set; }
+    }
+
 }

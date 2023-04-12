@@ -10,6 +10,8 @@ namespace ProjetoErp.Repositorios.Interfaces
 
         Task<ProdutoModel> Adicionar(ProdutoModel produtoModel);
 
+        Task<ProdutoModel> AtualizarQuantidadeProduto(ProdutoQuantidadeModel produtoModel);
+
         Task<ProdutoModel> Atualizar(ProdutoModel produtoModel, int id);
 
         Task<bool> Apagar(int id);

@@ -77,5 +77,22 @@ namespace ProjetoErp.Repositorios
         {
             return await _dbContext.Produtos.ToListAsync();
         }
+        public async Task<ProdutoModel> AtualizarQuantidadeProduto(ProdutoQuantidadeModel produto)
+        {
+            ProdutoModel prod = await BuscarPorId(produto.id_PD);
+
+            if (prod == null)
+            {
+                throw new Exception($"Produto para o ID:{produto.id_PD} não foi encontrado");
+            }
+
+            prod.quantidadeEstoque_PD = produto.quantidadeEstoque_PD;
+
+            _dbContext.Produtos.Update(prod);
+
+            await _dbContext.SaveChangesAsync();
+
+            return prod;
+        }
     }
 }
