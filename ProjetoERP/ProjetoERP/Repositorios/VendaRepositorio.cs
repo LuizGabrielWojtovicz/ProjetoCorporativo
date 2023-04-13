@@ -18,14 +18,14 @@ namespace ProjetoErp.Repositorios
 
             List < ProdutoVendidoModel > produtosCarrinho = await _dbContext.Carrinho.ToListAsync();
 
-            if (produtosCarrinho == null)
-            {
-                throw new Exception($"O carrinho está vazio");
-            }
-
             foreach (ProdutoVendidoModel produtoVendidoModel in produtosCarrinho)
             {
               venda.valorTotal_VD += produtoVendidoModel.precoUnitario_PV * produtoVendidoModel.quantidade_CR;
+            }
+
+            if (venda.valorTotal_VD == 0)
+            {
+                throw new Exception($"O carrinho está vazio");
             }
 
             await _dbContext.Vendas.AddAsync(venda);

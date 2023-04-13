@@ -36,12 +36,12 @@ namespace ProjetoErp.Controllers
             return Ok(produto);
         }
 
-        [HttpPost("AtualizarQuantidadePorIdProduto")]
-        public async Task<ActionResult<ProdutoModel>> AtualizarQuantidadePorIdProduto(ProdutoQuantidadeModel produtosModel)
-        {
-            ProdutoModel produto = await _produtosRepositorio.AtualizarQuantidadeProduto(produtosModel);
-            return Ok(produto);
-        }
+        //[HttpPost("AtualizarQuantidadePorIdProduto")]
+        //public async Task<ActionResult<ProdutoModel>> AtualizarQuantidadePorIdProduto(ProdutoQuantidadeModel produtosModel)
+        //{
+        //    ProdutoModel produto = await _produtosRepositorio.AtualizarQuantidadeProduto(produtosModel);
+        //    return Ok(produto);
+        //}
 
 
         [HttpPut("{id}")]

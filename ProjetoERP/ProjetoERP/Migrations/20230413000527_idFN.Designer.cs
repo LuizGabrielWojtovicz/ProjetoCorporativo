@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoErp.Data;
 
@@ -11,9 +12,11 @@ using ProjetoErp.Data;
 namespace ProjetoErp.Migrations
 {
     [DbContext(typeof(ProjetoDBContext))]
-    partial class ProjetoDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230413000527_idFN")]
+    partial class idFN
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,28 +48,6 @@ namespace ProjetoErp.Migrations
                     b.HasKey("id_CT");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("ProjetoErp.Models.DemandaModel", b =>
-                {
-                    b.Property<int>("id_DM")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_DM"));
-
-                    b.Property<int>("id_FN")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_PD")
-                        .HasColumnType("int");
-
-                    b.Property<int>("quantidadeAdicionada")
-                        .HasColumnType("int");
-
-                    b.HasKey("id_DM");
-
-                    b.ToTable("Demandas");
                 });
 
             modelBuilder.Entity("ProjetoErp.Models.FornecedorModel", b =>
@@ -163,6 +144,9 @@ namespace ProjetoErp.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("estoqueMinimo_PD")
+                        .HasColumnType("int");
+
+                    b.Property<int>("id_FN")
                         .HasColumnType("int");
 
                     b.Property<int>("importancia_PD")

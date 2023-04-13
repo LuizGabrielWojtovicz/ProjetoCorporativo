@@ -22,6 +22,8 @@ namespace ProjetoErp.Data
 
         public DbSet<VendaModel> Vendas { get; set; }
 
+        public DbSet<DemandaModel> Demandas { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new FuncionarioMap());

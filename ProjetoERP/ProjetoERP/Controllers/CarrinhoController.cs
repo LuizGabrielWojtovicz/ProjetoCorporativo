@@ -4,11 +4,11 @@ using ProjetoErp.Repositorios;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ProdutoVendidoController : ControllerBase
+public class CarrinhoController : ControllerBase
 {
     private readonly ProdutoVendidoRepositorio _produtoVendidoRepositorio;
 
-    public ProdutoVendidoController(ProdutoVendidoRepositorio produtoVendidoRepositorio)
+    public CarrinhoController(ProdutoVendidoRepositorio produtoVendidoRepositorio)
     {
         _produtoVendidoRepositorio = produtoVendidoRepositorio;
     }

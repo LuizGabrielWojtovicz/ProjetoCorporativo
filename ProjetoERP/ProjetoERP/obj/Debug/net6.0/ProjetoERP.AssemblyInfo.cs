@@ -12,12 +12,12 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("bd4ebda5-2a08-4789-a96f-13f2c52716ef")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("ProjetoErp")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ProjetoERP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("ProjetoErp")]
-[assembly: System.Reflection.AssemblyTitleAttribute("ProjetoErp")]
+[assembly: System.Reflection.AssemblyProductAttribute("ProjetoERP")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ProjetoERP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
