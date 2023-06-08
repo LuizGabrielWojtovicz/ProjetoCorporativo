@@ -2,7 +2,7 @@
 using ProjetoErp.Data;
 using ProjetoErp.dtos;
 using ProjetoErp.Models;
-using ProjetoErp.Services;
+
 
 namespace ProjetoErp.Repositorios
 {
@@ -22,7 +22,7 @@ namespace ProjetoErp.Repositorios
             LancamentoDTO lancamentoDTO = new LancamentoDTO();
 
             ContaModel contaOrigem = await contaRepositorio.BuscarPorId(idOrigem);
-            ContaModel contaDestino = await contaRepositorio.BuscarPorId(idOrigem);
+            ContaModel contaDestino = await contaRepositorio.BuscarPorId(idDestino);
 
             LancamentoContabil lancamentoOrigem = new LancamentoContabil();
             lancamentoOrigem.conta = contaOrigem;
@@ -30,7 +30,6 @@ namespace ProjetoErp.Repositorios
             lancamentoOrigem.tipo = tipoOrigem;
             contaOrigem.lancamentos.Add(lancamentoOrigem);
             await _dbContext.Lancamentos.AddAsync(lancamentoOrigem);
-            await _dbContext.SaveChangesAsync();
 
             lancamentoDTO.setLancamentoOrigem(lancamentoOrigem);
 
@@ -40,6 +39,7 @@ namespace ProjetoErp.Repositorios
             lancamentoDestino.tipo = tipoDestino;
             contaDestino.lancamentos.Add(lancamentoDestino);
             await _dbContext.Lancamentos.AddAsync(lancamentoDestino);
+
             await _dbContext.SaveChangesAsync();
 
             lancamentoDTO.setLancamentoDestino(lancamentoDestino);

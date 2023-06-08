@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoErp.dtos;
 using ProjetoErp.Models;
 using ProjetoErp.Repositorios;
 using System;
@@ -10,6 +11,8 @@ namespace ProjetoErp.Controllers
     public class ContaController : ControllerBase
     {
         private readonly ContaRepositorio _contaRepositorio;
+
+        private LancamentoRepositorio lancamentoRepositorio;
 
         public ContaController(ContaRepositorio contaRepositorio)
         {
@@ -62,6 +65,25 @@ namespace ProjetoErp.Controllers
         {
             ContaModel novaConta = await _contaRepositorio.Adicionar(conta);
             return Ok(novaConta);
+        }
+
+        [HttpPost("{idOrigem}/debito/{idDestino}/credito")]
+        public async Task<IActionResult> LancarDebito(int idOrigem,int idDestino, [FromBody] double valor)
+        {
+            LancamentoDTO lancamentoDTO = new LancamentoDTO();
+            lancamentoDTO  = await lancamentoRepositorio.Lancar(idOrigem, TipoLancamento.DEBITO, idDestino, TipoLancamento.CREDITO, valor);
+                return Ok(lancamentoDTO);
+          
+        }
+
+
+        [HttpPost("{idOrigem}/credito/{idDestino}/debito")]
+        public async Task<IActionResult> LancarCredito(int idOrigem, int idDestino, [FromBody] double valor)
+        {
+            LancamentoDTO lancamentoDTO = new LancamentoDTO();
+            lancamentoDTO = await lancamentoRepositorio.Lancar(idOrigem, TipoLancamento.CREDITO, idDestino, TipoLancamento.DEBITO, valor);
+            return Ok(lancamentoDTO);
+
         }
 
         [HttpPut("{id}")]
